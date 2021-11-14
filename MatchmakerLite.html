@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matchmaker</title>
+</head>
+ 
+<body>
+    <h1>Matchmaker Lite</h1>
+    <p>Instructions...</p>
+
+    <label>The Blackhawks are the best hockey team</label></br>
+    <select id="q1">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neither Agree nor Disagree</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select></body></br></br>
+    <label>Hockey is the best sport</label></body></br>
+    <select id="q2">
+        <option value="5">Strongly Agree</option>
+        <option value="4">Agree</option>
+        <option value="3">Neither Agree nor Disagree</option>
+        <option value="2">Disagree</option>
+        <option value="1">Strongly Disagree</option>
+    </select>
+</br></br>
+<label>Arron Roggers is cool</label></body></br>
+<select id="q3">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neither Agree nor Disagree</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strongly Disagree</option>
+</select>
+</br></br>
+<label>The batmobile is the coolest car</label></body></br>
+<select id="q4">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neither Agree nor Disagree</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strongly Disagree</option>
+</select>
+</br></br>
+<label>Star Wars is the greatest story</label></body></br>
+<select id="q5">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neither Agree nor Disagree</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strongly Disagree</option>
+</select>
+</br>
+</br>
+
+    <button onclick="calculateCompatability()">Calculate Compatability</button>
+    <p id="compatability"></p>
+<script>
+console.log("Starting Matchmaker Lite...");
+
+function calculateCompatability() {
+    console.log("caclulateCompatability()")
+
+    const Desired_Response = [
+        5,
+        5,
+        1,
+        4,
+        5
+    ]
+
+    const MAX_SCRORE = 25
+
+    let question1Response = document.getElementById('q1').selectedOptions[0].value;
+    let question2Response = document.getElementById('q2').selectedOptions[0].value;
+    let question3Response = document.getElementById('q3').selectedOptions[0].value;
+    let question4Response = document.getElementById('q4').selectedOptions[0].value;
+    let question5Response = document.getElementById('q5').selectedOptions[0].value;
+
+
+console.log("Question 1 Answer:")
+console.log(document.getElementById('q1')selectedOptions[0].text)
+console.log(document.getElementById('q1')selectedOptions[0].value)
+console.log(question1Response)
+
+console.log("Question 2 Answer:")
+console.log(document.getElementById('q2')selectedOptions[0].text)
+console.log(document.getElementById('q2')selectedOptions[0].value)
+console.log(question2Response)
+
+console.log("Question 3 Answer:")
+console.log(document.getElementById('q3')selectedOptions[0].text)
+console.log(document.getElementById('q3')selectedOptions[0].value)
+console.log(question1Response)
+
+console.log("Question 4 Answer:")
+console.log(document.getElementById('q4')selectedOptions[0].text)
+console.log(document.getElementById('q4')selectedOptions[0].value)
+console.log(question1Response)
+
+console.log("Question 5 Answer:");
+console.log(document.getElementById('q5')selectedOptions[0].text);
+console.log(document.getElementById('q5')selectedOptions[0].value);
+console.log(question1Response);
+
+
+let question1Compatability = 5 - Math.abs(question1Response - Desired_Response[0]);
+let question2Compatability = 5 - Math.abs(question2Response - Desired_Response[1]);
+let question3Compatability = 5 - Math.abs(question3Response - Desired_Response[2]);
+let question4Compatability = 5 - Math.abs(question4Response - Desired_Response[3]);
+let question5Compatability = 5 - Math.abs(question5Response - Desired_Response[4]);
+
+console.log("c1="+question1Compatability);
+console.log("c2="+question2Compatability);
+console.log("c3="+question3Compatability);
+console.log("c4="+question4Compatability);
+console.log("c5="+question5Compatability);
+
+let totalCompatability = question1Compatability + question2Compatability + question3Compatability + question4Compatability + question5Compatability;
+
+totalCompatability *=100 / MAX_SCRORE;
+totalCompatability = Math.round(totalCompatability);
+console.log("tc="+totalCompatability);
+
+
+
+document.getElementById("compatability").innerHTML = "Your compatability is: "+totalCompatability;
+}
+
+</script>
+
+
+</body>
+
+
+</html>
